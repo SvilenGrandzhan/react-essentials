@@ -1,27 +1,30 @@
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import CoreConcept from "./components/CoreConcept";
-import componentImg from "./assets/components.png";
-
-const reactDescriptions = ["Fundamental", "Crucial", "Core"];
-
-const genRandomInt = (max) => {
-  return Math.floor(Math.random() * (max + 1));
-};
+import { CORE_CONCEPTS } from "./data";
+import TabButton from "./components/TabButton";
 
 function App() {
-  const description = reactDescriptions[genRandomInt(2)];
   return (
     <div>
       <Header />
       <main>
-        <section id="core-concept">
+        <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
-            <CoreConcept title="Components" description="Description 1" img={componentImg} />
-            <CoreConcept title="Components 2" description="Description 2" />
-            <CoreConcept title="Components 3" description="Description 3" />
-            <CoreConcept title="Components 4" description="Description 4" />
+            <CoreConcept title={CORE_CONCEPTS[0].title} description={CORE_CONCEPTS[0].description} image={CORE_CONCEPTS[0].image} />
+            <CoreConcept {...CORE_CONCEPTS[1]} />
+            <CoreConcept {...CORE_CONCEPTS[2]} />
+            <CoreConcept {...CORE_CONCEPTS[3]} />
           </ul>
+        </section>
+        <section id="examples">
+          <h2>Examples</h2>
+          <menu>
+            <TabButton>Components</TabButton>
+            <TabButton>JSX</TabButton>
+            <TabButton>Props</TabButton>
+            <TabButton>State</TabButton>
+          </menu>
         </section>
       </main>
     </div>

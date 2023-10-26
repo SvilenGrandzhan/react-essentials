@@ -1,4 +1,5 @@
-import img from "../assets/react-core-concepts.png";
+import img from "../../assets/react-core-concepts.png";
+import classes from "./Header.module.css";
 
 const Header = () => {
   return (
